@@ -1,31 +1,49 @@
-# pkg-name
+# unocss-preset-rem-transform
 
-A starter template for TypeScript library with Github Actions.
+Transform base rem as you want.
 
-## builtin plugins
+## installation
 
-- [pnpm](https://github.com/pnpm/pnpm) - expected packageManager
-- [unbuild](https://github.com/unjs/unbuild) - bundler
-- [vitest](https://github.com/vitest-dev/vitest) - test framwork
-- [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import) - auto import vitest
-  <br />
-- [simple-git-hooks](https://github.com/toplenboren/simple-git-hooks)
-- [prettier](https://github.com/prettier/prettier)
-- [lint-staged](https://github.com/okonet/lint-staged)
-- [bumpp](https://github.com/antfu/bumpp) - packge version control
+```bash
+pnpm i unocss-preset-rem-transform -D
+```
 
-## alternative plugins
+## config
 
-You can choose one or some of following plugins to install to this repo:
+```ts
+// unocss.config.ts
+import presetRemTransform from "unocss-preset-rem-transform"
 
-- [defu](https://github.com/unjs/defu) - Assign default properties, recursively.
-- [untyped](https://github.com/unjs/untyped) - Generate types and markdown from a config object.
-- [consola](https://github.com/unjs/consola) - Elegant Console Logger for Node.js and Browser
-- [zx](https://github.com/google/zx) - A tool for writing better scripts
+export default defineConfig({
+  presets: [
+    // choose one of the following usages you prefer
+    // transform is number
+    presetRemTransform({ transform: 4 }),
+    // transform is function
+    presetRemTransform({ transform: (value) => value * 8 }),
+  ],
+})
+```
 
-## use
+## usage
 
-Please replace `pkg-name` to your target package name, change author and repo infos to yours in `package.json`. Also replace the copyright in `LICENSE`.
+Due to the [hardcode](https://github.com/unocss/unocss/blob/59e6c343d5645d547349721e9abfc5bb62ecdd80/packages/preset-mini/src/_utils/handlers/handlers.ts#L54), base rem unit is `0.25` .
+
+if you'd like the base rem unit to be `1` which means `p-1 => { padding : 1rem }`, you can config like is:
+
+```ts
+presetRemTransform({ transform: 4 })
+```
+
+or
+
+```ts
+presetRemTransform({ transform: (value) => value * 4 }),
+```
+
+## Thanks :heart:
+
+- [@unocss/preset-rem-to-px](https://github.com/unocss/unocss/tree/main/packages/preset-rem-to-px)
 
 ## License
 
