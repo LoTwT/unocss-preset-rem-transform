@@ -32,13 +32,17 @@ Due to the [hardcode](https://github.com/unocss/unocss/blob/59e6c343d5645d547349
 if you'd like the base rem unit to be `1` which means `p-1 => { padding : 1rem }`, you can config like is:
 
 ```ts
+// multipiler
+// if transform is a number, result will be 0.25 * 4
 presetRemTransform({ transform: 4 })
 ```
 
 or
 
 ```ts
-presetRemTransform({ transform: (value) => value * 4 }),
+// result will be the return value
+// full control
+presetRemTransform({ transform: (value) => value * 4 })
 ```
 
 ## Thanks :heart:
