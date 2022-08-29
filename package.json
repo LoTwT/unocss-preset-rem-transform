@@ -35,7 +35,8 @@
     "prepublishOnly": "pnpm build",
     "release": "bumpp && npm publish",
     "prepare": "simple-git-hooks",
-    "up": "taze latest -I"
+    "up": "taze latest -I",
+    "play": "pnpm -C playground run dev"
   },
   "repository": {
     "type": "git",
