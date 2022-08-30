@@ -24,10 +24,8 @@ export default defineConfig({
       warn: true,
     }),
     presetTypography(),
-    // transform is number
-    // presetRemTransform({ transform: 4 }),
     // transform is function
-    presetRemTransform({ transform: (value) => value * 8 }),
+    presetRemTransform({ multiplier: 10, divisor: 5 }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: "prose prose-sm m-auto text-left".split(" "),
