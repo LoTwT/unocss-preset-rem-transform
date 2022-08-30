@@ -1,6 +1,6 @@
 # unocss-preset-rem-transform
 
-Transform base rem as you want.
+Transform rem as you want by multiplication and division.
 
 ## installation
 
@@ -11,17 +11,19 @@ pnpm i unocss-preset-rem-transform -D
 ## config
 
 ```ts
+interface RemTransformOptions {
+  multiplier: number
+  divisor: number
+}
+```
+
+```ts
 // unocss.config.ts
 import presetRemTransform from "unocss-preset-rem-transform"
 
 export default defineConfig({
-  presets: [
-    // choose one of the following usages you prefer
-    // transform is number
-    presetRemTransform({ transform: 4 }),
-    // transform is function
-    presetRemTransform({ transform: (value) => value * 8 }),
-  ],
+  // base rem unit would be 0.25 * 100 / 10 = 2.5
+  presets: [presetRemTransform({ multipiler: 100, divisor: 10 })],
 })
 ```
 
@@ -34,15 +36,7 @@ if you'd like the base rem unit to be `1` which means `p-1 => { padding : 1rem }
 ```ts
 // multipiler
 // if transform is a number, result will be 0.25 * 4
-presetRemTransform({ transform: 4 })
-```
-
-or
-
-```ts
-// result will be the return value
-// full control
-presetRemTransform({ transform: (value) => value * 4 })
+presetRemTransform({ multipiler: 4 })
 ```
 
 ## Thanks :heart:
