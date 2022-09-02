@@ -25,7 +25,7 @@ export default defineConfig({
     }),
     presetTypography(),
     // transform is function
-    presetRemTransform({ multiplier: 10, divisor: 5 }),
+    presetRemTransform({ multiplier: 8 }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: "prose prose-sm m-auto text-left".split(" "),
