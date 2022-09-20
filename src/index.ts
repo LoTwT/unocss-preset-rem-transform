@@ -4,7 +4,9 @@ const remRE = /^-?[\.\d]+rem$/
 
 export default function presetRemTransform(multiplier = 1): Preset {
   if (multiplier <= 0) {
-    throw new Error("multiplier must be greater than 0")
+    throw new Error(
+      "unocss-preset-rem-transform: multiplier must be greater than 0 !",
+    )
   }
 
   return {
