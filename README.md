@@ -20,7 +20,7 @@ import presetRemTransform from "unocss-preset-rem-transform"
 
 export default defineConfig({
   // base rem unit would be 0.25 * 4 = 1
-  presets: [presetRemTransform({ multipiler: 4 })],
+  presets: [presetRemTransform(4)],
 })
 ```
 
